@@ -23,6 +23,8 @@ while len(guessed_state) < 50:
         for state in state_names:
             if state not in guessed_state:
                 missed_state.append(state)
+                df = pandas.DataFrame(missed_state)
+                df.to_csv("state_to_learn.csv")
         break
     if converted_answer in state_names:
         guessed_state.append(converted_answer)
@@ -36,7 +38,6 @@ while len(guessed_state) < 50:
         my_turtle.write(converted_answer)
 
 
-df = pandas.DataFrame(missed_state)
-df.to_csv("state_to_learn.csv")
+
 
 
